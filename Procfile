@@ -1,1 +1,1 @@
-web: gunicorn codefury.wsgi --log-file -
+web: gunicorn codefury/codefury.wsgi --log-file -
