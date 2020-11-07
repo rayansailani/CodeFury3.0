@@ -25,7 +25,7 @@ SECRET_KEY = 'h4!!tuz53wm=#pfy4+57gjy!w6ty*09u32_dim_z!(k5a@1^xd'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['empower-u.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['empower-u.herokuapp.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
