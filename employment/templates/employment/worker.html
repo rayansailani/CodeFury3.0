@@ -1,10 +1,54 @@
 {% extends 'base.html' %} {% block content %}
-<form
-  action="{% url 'create:register' %}"
-  method="POST"
-  enctype="multipart/form-data"
->
+<!-- <form action="{% url 'create:register' %}" method="POST" enctype="multipart/form-data">
   {% csrf_token %} {{ form.as_p }}
   <button type="submit">Register</button>
+</form> -->
+<!-- Default form subscription -->
+<form class="text-center border border-light p-5" action="{% url 'create:register' %}" method="POST"
+  enctype="multipart/form-data">
+  {% csrf_token %}
+  <p class="h4 mb-4">Register</p>
+
+  <p>Join our mailing list. We write rarely, but only the best content.</p>
+
+
+  <!-- Name -->
+  <!-- <input type="text" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Name"> -->
+  <label for="id_name">Name</label>
+  <input type="text" name="name" maxlength="35" required="" id="id_name" class="form-control mb-4" placeholder="Name">
+  <label for="id_slug">Slug</label>
+  <input type="text" name="slug" maxlength="50" required="" id="id_slug" class="form-control mb-4" placeholder="Slug">
+  <label for="id_adhar">Adhar</label>
+  <input type="text" name="adhar" maxlength="12" required="" id="id_adhar" class="form-control mb-4"
+    placeholder="Enter your Aadhar number ">
+  <label for="id_dob">Date of Birth</label>
+
+  <input type="date" name="dob" required="" id="id_dob" class="form-control mb-4" placeholder="Name">
+  <label for="id_work">Type of work undertaken</label>
+  <select name="work" id="id_work" class="form-control mb-4" placeholder="Type of work involved">
+    <option value="carpenter">carpenter</option>
+
+    <option value="handloom worker">Handloom worker</option>
+
+    <option value="labour" selected="">Labour</option>
+
+    <option value="other" selected="">Other</option>
+
+  </select>
+  <script>
+
+  </script>
+  <label for="id_other">Other:</label>
+  <input type="text" name="other" maxlength="100" id="id_other" class="form-control mb-4">
+  <label for="id_is_employed">Is employed:</label>
+  <input type="checkbox" name="is_employed" id="id_is_employed" class="form-control mb-2">
+  <!-- Email -->
+  <!-- <input type="email" id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="E-mail"> -->
+
+  <!-- Sign in button -->
+  <button class="btn btn-info btn-block" type="submit">Register as a job seeker</button>
+
+
 </form>
+<!-- Default form subscription -->
 {% endblock %}
