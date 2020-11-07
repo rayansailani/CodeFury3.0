@@ -27,3 +27,27 @@ class Worker(models.Model):
     class Meta:
         verbose_name = "Worker"
         verbose_name_plural = "Workers"
+
+
+class Employer(models.Model):
+    WORK_CHOICE = (
+        ('painters', 'painters'),
+        ('carpenter', 'carpenter'),
+        ('handloom worker', 'handloom worker'),
+        ('labour', 'labour'),
+    )
+    name = models.CharField(max_length=25)
+    slug = models.SlugField()
+    dateTime = models.DateTimeField(auto_now_add=True)
+    requirement_type = models.CharField(
+        max_length=100, default='labour', choices=WORK_CHOICE)
+    other = models.CharField(max_length=100, default=None, blank=True)
+    address = models.TextField()
+    amount = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Employer"
+        verbose_name_plural = "Employers "
