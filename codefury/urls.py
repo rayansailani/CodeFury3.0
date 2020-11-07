@@ -21,4 +21,5 @@ urlpatterns = [
     path("", views.home, name="home"),
     path("accounts/", include("accounts_app.urls")),
     path('emp/', include('employment.urls')),
+    
 ]
