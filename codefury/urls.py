@@ -23,6 +23,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.home, name="home"),
     path("dash", views.dash, name="dash"),
+    path('listings', views.listing, name="listing"),
     path("accounts/", include("accounts_app.urls")),
     path("emp/", include("employment.urls")),
 ]

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="text-align: center;">
+    <h1>Listing</h1>
+</div>
+<p class="container">This page contains a listing of domestic requirements of workers in your locality!</p>
+{% for listing in listings %}
+<div class="event-container animated bounce">
+
+    <div class="event">
+        <p>Name: {{listing.name}}</p>
+        <p>Requirements type: {{listing.requirement}} </p>
+        <p>Aadhar Number: {{listing.phonenumber}}</p>
+    </div>
+
+</div>
+{% endfor %}
+{% endblock %}

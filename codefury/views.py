@@ -1,7 +1,7 @@
 
 from django.http import HttpResponse
 from django.shortcuts import render
-from employment.models import Worker
+from employment.models import Worker, Listing
 
 
 def home(request):
@@ -16,3 +16,11 @@ def dash(request):
         "workers": workers,
     }
     return render(request, 'dashboard.html', context)
+
+
+def listing(request):
+    listings = Listing.objects.all()
+    context = {
+        'listings': listings,
+    }
+    return render(request, 'listing.html', context)

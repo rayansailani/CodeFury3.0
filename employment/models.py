@@ -78,6 +78,11 @@ class Worker(models.Model):
         return self.name
 
 
+class Listing(models.Model):
+    name = models.CharField(max_length=35)
+    requirement = models.CharField(max_length=100)
+    phonenumber = models.CharField(max_length=10)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
 # class Meta:
 #   verbose_name = "Worker"
 #  verbose_name_plural = "Workers"
