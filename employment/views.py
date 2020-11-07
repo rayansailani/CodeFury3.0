@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import TaskForm
+from .forms import TaskForm, CompanyForm
 from employment.models import Worker
 from django.contrib import messages
 
@@ -27,8 +27,22 @@ def register(request):
     if request.method == "POST":
         form = TaskForm(request.POST or None)
         if form.is_valid():
-            form.save()
-            messages.success(request, ("new employer"))
-            return redirect("register")
+            instance = form.save(commit=False)
+            instance.user = request.user
+            instance.save()
+            return redirect("home")
 
     return render(request, "employment/worker.html", {"form": form})
+
+
+def regCompany(request):
+    form = CompanyForm()
+    if request.method == "POST":
+        form = CompanyForm(request.POST or None)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.user = request.user
+            instance.save()
+            return redirect("home")
+
+    return render(request, "employment/company.html", {"form": form})

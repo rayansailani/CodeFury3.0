@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- <form action="{% url 'create:regcom' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit">Register</button>
+</form> -->
+<form class="text-center border border-light p-5" action="{% url 'create:regcom' %}" method="POST"
+    enctype="multipart/form-data">
+    {% csrf_token %}
+    <p class="h4 mb-4">Register as an Employer</p>
+    <!-- Name -->
+    <!-- <input type="text" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Name"> -->
+    <label for="id_name">Name:</label>
+    <input type="text" name="name" maxlength="35" required="" id="id_name" class="form-control mb-4" placeholder="Name">
+    <label for="id_slug">Slug</label>
+    <input type="text" name="slug" maxlength="50" required="" id="id_slug" class="form-control mb-4" placeholder="Slug">
+    <label for="id_CBDT_id">CBDT id:</label>
+    <input type="number" name="CBDT_id" required="" id="id_CBDT_id" class="form-control mb-4"
+        placeholder="Enter your CBDT ID">
+    <label for="id_work">Type of work requirement</label>
+    <select name="work" id="id_work" class="form-control mb-4" placeholder="Type of work involved">
+        <option value="carpenter">carpenter</option>
+
+        <option value="handloom worker">Handloom worker</option>
+
+        <option value="labour" selected="">Labour</option>
+
+        <option value="other" selected="">Other</option>
+
+    </select>
+    <label for="id_other">Other:</label>
+    <input type="text" name="other" maxlength="100" id="id_other" class="form-control mb-4">
+    <label for="id_address">Address:</label>
+    <textarea name="address" cols="40" rows="10" required="" id="id_address" class="form-control mb-4"
+        placeholder="Enter your address"></textarea>
+    <label for="id_Ammount_paid">Ammount paid:</label>
+    <input type="number" name="Ammount_paid" required="" id="id_Ammount_paid" class="form-control mb-4"
+        placeholder="Enter the ammount you are bound to offer per day">
+    <!-- Email -->
+    <!-- <input type="email" id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="E-mail"> -->
+    {% for field in form %} {% for error in field.errors %}
+    <p style="color: red">{{error}}</p>
+    {% endfor %} {% endfor %} {% if form.non_field_errors %}
+    <div style="color: red">
+        <p>{{form.non_field_errors}}</p>
+    </div>
+    {% endif %}
+    <!-- Sign in button -->
+    <button class="btn btn-info btn-block" type="submit">Register as an Employer</button>
+</form>
+<script>
+    const titleInput = document.querySelector("input[name=name]");
+    const slugInput = document.querySelector("input[name=slug]");
+
+    const slugify = (val) => {
+        return val
+            .toString()
+            .toLowerCase()
+            .trim()
+            .replace(/&/g, "-and-") // Replace & with 'and'
+            .replace(/[\s\W-]+/g, "-"); // Replace spaces, non-word characters and dashes with a single dash (-)
+    };
+
+    titleInput.addEventListener("keyup", (e) => {
+        slugInput.setAttribute("value", slugify(titleInput.value));
+    });
+</script>
+
+{% endblock %}

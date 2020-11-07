@@ -1,5 +1,5 @@
 from django import forms
-from employment.models import Worker
+from employment.models import Worker, Company
 
 # WORK_CHOICE = (
 #    ('painters', 'painters'),
@@ -31,7 +31,7 @@ from employment.models import Worker
 # }))
 # dob = forms.DateField(widget=forms.DateInput(attrs={
 # 'class': 'form-control',
-#'type': 'date',
+# 'type': 'date',
 # }))
 # aadhar = forms.CharField(max_length=12, required=True, widget=forms.TextInput(attrs={
 #    'class': 'form-control',
@@ -48,4 +48,12 @@ from employment.models import Worker
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Worker
-        fields = "__all__"
+        fields = ['name', 'slug', 'dob',  'adhar',
+                  'work', 'other', 'is_employed']
+
+
+class CompanyForm(forms.ModelForm):
+    class Meta:
+        model = Company
+        fields = ['name', 'slug', 'CBDT_id', 'address',
+                  'work', 'other', 'Ammount_paid']

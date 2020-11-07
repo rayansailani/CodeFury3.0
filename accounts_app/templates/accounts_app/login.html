@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<form class="text-center border border-light p-5" action="{% url 'accounts:login' %}"
+    class="text-center border border-light p-5" method="POST">
+
+    {% csrf_token %}
+    <p class="h4 mb-4">Login</p>
+    <input type="text" name="username" value="rayansailani" autofocus="" autocapitalize="none" autocomplete="username"
+        maxlength="150" required="" id="id_username" class="form-control mb-4" placeholder="Enter your username">
+
+    <input type="password" name="password" autocomplete="current-password" required="" id="id_password"
+        class="form-control mb-4" placeholder="Enter your password">
+    {% for field in form %}
+    {% if field.errors %}
+    {% for error in field.errors %}
+    {% if field.errors %}
+    <p style="color: red">{{error}}</p>
+    {% endif %}
+    {% endfor %}
+    {% endif %}{% endfor %} {% if form.non_field_errors %}
+    <div style="color: red">
+        <p>{{form.non_field_errors}}</p>
+    </div>
+    {% endif %}
+    <button class="btn btn-info btn-block" type="submit">Sign Up</button>
+</form>
+{% endblock %}

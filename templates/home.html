@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styling %}
+<style>
+    .header {
+        height: 100vh;
+        background-size: contain;
+    }
+
+    @media screen and (max-width:800px) {
+        .header-info {
+            font-size: 24px;
+        }
+
+        .header {
+            height: 100vh;
+        }
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+<section class="pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" class="header"
+    style="background-image: url('{% static 'img/header.jpg' %}'); ">
+
+    <div class="container-fluid">
+        <div class="row  justify-content-center align-items-center d-flex text-center h-100">
+            <div class="col-12 col-md-8  h-50 ">
+                <h1 class="display-2  text-info mb-2 mt-5 header-info" data-aos="fade-up" data-aos-duration="1000"
+                    style="overflow-y: hidden;">
+                    <strong>Empower
+                        You</strong> </h1>
+                <p class="lead  text-light mb-5" data-aos="fade-up" data-aos-duration="1000">Employment is empowerment
+                </p>
+
+                <div class="btn-container-wrapper p-relative d-block  zindex-1">
+                    <a class="btn btn-link btn-lg   mt-md-3 mb-4 scroll align-self-center text-light" href="#aboutus">
+                        <i class="fa fa-angle-down fa-4x text-light"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section style="margin:30px" id="aboutus">
+    <div class="section-heading">
+        <h2>About Us</h2>
+    </div>
+    <div class="container">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, vitae! Aliquid modi cupiditate facilis
+            reiciendis illum, temporibus officiis? Distinctio velit omnis commodi! Ducimus quas voluptate officiis dolor
+            libero amet facilis similique minima veritatis dolore sunt totam id maxime voluptas, voluptatum autem eaque
+            explicabo quibusdam aut fugiat quam provident earum. Non, sint dolore excepturi, corporis eius quibusdam
+            nemo, labore placeat accusamus expedita similique assumenda delectus aspernatur doloremque! Unde distinctio
+            veritatis incidunt, quidem id nostrum inventore aut illum assumenda temporibus officia, voluptatem quam
+            dolorum modi saepe omnis minima ut laborum! Molestias in dolor ea repellendus excepturi, aspernatur minima
+            voluptatum iste quam explicabo!</p>
+    </div>
+</section>
+<section data-aos="fade-up" style="margin:30px">
+    <div class="section-heading">
+        <h3>What we set out to solve</h3>
+    </div>
+    <ul class="container">
+        <li>
+            unorganised labour has high level insecurity
+        </li>
+        <li>
+            Poor human capital base (in terms of education, skill and training) as well as lower mobilization status of
+            the work force
+        </li>
+        <li>
+            Excessive seasonality of employment
+        </li>
+        <p>and much more..
+        </p>
+    </ul>
+</section>
+<section data-aos="fade-up" style="margin:30px">
+    <h3 class="section-heading">You can help them too, courtesy is all it takes</h3>
+    <p class="container">When ever you see a unemployed daily wage labour, don't stay put. Get him/her registered with
+        our
+        website. Look
+        around your sorroundings</p>
+    <p class="container">
+        If you have any requirents for services from unorganised sector, get it organised by listing your requirement
+        with us.
+    </p>
+</section>
+<div class="" id="prec"></div>
+<section data-aos="fade-up" style="margin:30px" id="prec">
+    <div class="section-heading">
+        <h2>Precautions </h2>
+    </div>
+    <ul class="container" style="text-align:center">
+        <li>1.Always wear a mask</li>
+        <li>2.Maintain social distancing</li>
+        <li>3.Never take self medication</li>
+        <li>4.Visit the doctor is unwell</li>
+    </ul>
+</section>
+<div id="testimonials"></div>
+<section style="margin:30px" data-aos="fade-up">
+    <div class="section-heading">
+        <h2>Testimonials</h2>
+    </div>
+    <div class="container testimonials" style="margin: auto;" data-aos="fade-left">
+        <img src="{% static 'img/umar.jpeg' %}" alt="Avatar" style="width:90px" data-aos-duration="3000">
+        <p><span>Syed Khutub</span> Entreprenuer, Co-founder - <a href="http://fasmho.com/">Fasmho.com</a> </p>
+        <p>A very noble Idea to help the daily wage workers</p>
+    </div>
+    <br>
+
+    <div class="container testimonials" style="margin: auto;" data-aos="fade-right" data-aos-duration="3000">
+        <img src="{% static 'img/asjad bh.jpeg' %}" alt="Avatar" style="width:90px">
+        <p><span>Mohammed Asjad</span> Electrical Engineer, Labour activist.</p>
+        <p>Empower You - the needed element to society</p>
+    </div>
+</section>
+<div id="il"></div>
+<section style="margin:30px" data-aos="fade-up">
+    <div class="section-heading">
+        <h2>Important Links</h2>
+    </div>
+    <div class="links container" style="text-align:center">
+        <a href="https://vikaspedia.in/social-welfare/unorganised-sector-1/schemes-unorganised-sector">Government
+            Schemes for unorganised sector</a>
+        <br>
+        <a
+            href="https://www.google.com/search?q=latest+covid+news&rlz=1C1CHBF_enIN918IN919&oq=latest+covid+news&aqs=chrome.0.0i433i457j0i402l2j0j0i433l2j0j0i433.3982j0j4&sourceid=chrome&ie=UTF-8">Latest
+            COVID-19 News</a>
+        <br>
+        <a href="https://www.covid19india.org/">Latest COVID-19 stats</a>
+        <br>
+        <p>more are sure to come</p>
+
+    </div>
+</section>
+<footer class=" bg-info" style="padding:30px;">
+    <h3 style="text-align:center;">Team Djangonautic</h3>
+    <div class="link-cont">
+        <a href="https://github.com/stali1234">Stalin SangeethaRaj</a>
+
+        <a href="https://github.com/StuartDhas"> Staurt Dhas</a>
+
+        <a href="https://github.com/harishyogaraj"> Harish Yogaraj</a>
+
+        <a href="https://github.com/rayansailani">Mohammed Rayan Sailani</a>
+
+    </div>
+
+
+</footer>
+
+
+{% endblock %}

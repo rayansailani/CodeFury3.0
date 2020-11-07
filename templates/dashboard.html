@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="text-align: center;">
+    <h1>{{request.user.username}}</h1>
+</div>
+<p class="container">Good Going! these are the people who have connected with us with your kind help. Let us help spread
+    employment!</p>
+{% for worker in workers %}
+<div class="event-container animated bounce">
+
+    <div class="event">
+        <p>Name: {{worker.name}}</p>
+        <p>DOB: {{worker.dob}} </p>
+        <p>Aadhar Number: {{worker.adhar}}</p>
+        <p>Work type: {{worker.work}}</p>
+        <p>Is employed: {{worker.is_employed}}</p>
+    </div>
+
+</div>
+{% endfor %}
+{% endblock %}

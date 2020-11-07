@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<form class="text-center border border-light p-5" action="{% url 'accounts:signup' %}" method="POST">
+
+    {% csrf_token %}
+    <!-- {{form}} -->
+    <p class="h4 mb-4">Sign up</p>
+    <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus=""
+        required="" id="id_username" class="form-control mb-4" placeholder="Enter your username">
+
+    <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1"
+        class="form-control mb-4" placeholder="Enter your Password">
+    <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2"
+        class="form-control mb-4" placeholder="Confirm Password">
+    <span class="helptext" class="form-control mb-4">Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+        only.</span>
+    <span class="helptext" class="form-control mb-4">
+        <ul>
+            <li>Your password can’t be too similar to your other personal information.</li>
+            <li>Your password must contain at least 8 characters.</li>
+            <li>Your password can’t be a commonly used password.</li>
+            <li>Your password can’t be entirely numeric.</li>
+        </ul>
+    </span>
+
+    <span class="helptext">Enter the same password as before, for verification.</span>
+    {% for field in form %}
+    {% if field.errors %}
+    {% for error in field.errors %}
+    {% if field.errors %}
+    <p style="color: red">{{error}}</p>
+    {% endif %}
+    {% endfor %}
+    {% endif %}{% endfor %} {% if form.non_field_errors %}
+    <div style="color: red">
+        <p>{{form.non_field_errors}}</p>
+    </div>
+    {% endif %}
+    <button class="btn btn-info btn-block" type="submit">Sign Up</button>
+</form>
+{% endblock %}

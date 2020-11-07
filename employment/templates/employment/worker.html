@@ -8,10 +8,6 @@
   enctype="multipart/form-data">
   {% csrf_token %}
   <p class="h4 mb-4">Register</p>
-
-  <p>Join our mailing list. We write rarely, but only the best content.</p>
-
-
   <!-- Name -->
   <!-- <input type="text" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Name"> -->
   <label for="id_name">Name</label>
@@ -35,20 +31,43 @@
     <option value="other" selected="">Other</option>
 
   </select>
-  <script>
-
-  </script>
   <label for="id_other">Other:</label>
   <input type="text" name="other" maxlength="100" id="id_other" class="form-control mb-4">
   <label for="id_is_employed">Is employed:</label>
   <input type="checkbox" name="is_employed" id="id_is_employed" class="form-control mb-2">
   <!-- Email -->
   <!-- <input type="email" id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="E-mail"> -->
-
+  {% for field in form %}
+  {% if field.errors %}
+  {% for error in field.errors %}
+  {% if field.errors %}
+  <p style="color: black">{{error}}</p>
+  {% endif %}
+  {% endfor %}
+  {% endif %}{% endfor %} {% if form.non_field_errors %}
+  <div style="color: black">
+    <p>{{form.non_field_errors}}</p>
+  </div>
+  {% endif %}
   <!-- Sign in button -->
   <button class="btn btn-info btn-block" type="submit">Register as a job seeker</button>
-
-
 </form>
-<!-- Default form subscription -->
+<script>
+  const titleInput = document.querySelector("input[name=name]");
+  const slugInput = document.querySelector("input[name=slug]");
+
+  const slugify = (val) => {
+    return val
+      .toString()
+      .toLowerCase()
+      .trim()
+      .replace(/&/g, "-and-") // Replace & with 'and'
+      .replace(/[\s\W-]+/g, "-"); // Replace spaces, non-word characters and dashes with a single dash (-)
+  };
+
+  titleInput.addEventListener("keyup", (e) => {
+    slugInput.setAttribute("value", slugify(titleInput.value));
+  });
+</script>
+
 {% endblock %}
