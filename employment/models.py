@@ -37,7 +37,7 @@ class Worker(models.Model):
         ('labour', 'labour'),
     )
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
-    name = models.CharField(max_length=25)
+    name = models.CharField(max_length=35)
     slug = models.SlugField()
     adhar = models.CharField(max_length=12, unique=True)
     dateTime = models.DateTimeField(auto_now_add=True)
