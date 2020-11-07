@@ -7,11 +7,6 @@ from .forms import CustomRegistration
 # Create your views here.
 
 
-def login(request):
-
-    return HttpResponse("loghhhin")
-
-
 def homepage(request):
     return render(
         request,
@@ -24,7 +19,7 @@ def register(request):
         register_form = CustomRegistration(request.POST)
         if register_form.is_valid():
             register_form.save()
-            # messages.succes(request, "NEW   user ACCOUNT CREAted")
+            messages.success(request, "NEW   user ACCOUNT CREAted")
             return redirect("register")
     else:
 
