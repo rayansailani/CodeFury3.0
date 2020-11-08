@@ -3,12 +3,10 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     
 }
-.html {
-    overflow-x: hidden;
-}
+
 body{
     overflow-x: hidden;
     margin:0;
@@ -41,17 +39,18 @@ body{
 html{
     scroll-behavior: smooth;
     overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 /* header styling  */
 
 .section-heading{
-    overflow: hidden;
+    /* overflow: hidden; */
     text-align:center;
     margin:2rem;
 }
 .section-heading > h2{
     font-size: 3rem;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 @media screen and (max-width:800px){
     .section-heading{
@@ -174,4 +173,4 @@ html{
     border: 2px solid grey;
     border-radius: 4px;
     box-shadow: 8px 8px 0px 0px #015175;
-  }
+  }  
