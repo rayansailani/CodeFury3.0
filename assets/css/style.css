@@ -102,6 +102,13 @@ html{
     flex-direction: column;
     justify-content: center;
     align-items:center;
+    
+}
+.link-cont > a{
+  color:black;
+}
+.link-cont > a:hover{
+  color:blue;
 }
 /* card styling  */
 /* .card {
